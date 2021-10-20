@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import movies from "./movies.js";
+import MovieCard from "./MovieCard";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <div className="movies-list">
+          { movies.sort((a, b) => {
+            if (a.imdbRating < b.imdbRating) return 1;
+            if (a.imdbRating > b.imdbRating) return -1;
+            return 0;
+          }).slice(0, 100).map(movie => <MovieCard title={movie.title} imdbPage={movie.imdbPage} summary={movie.summary} youtubePoster={movie.youtubePoster} />) }
+        </div>
+      </div>
     </div>
   );
 }
