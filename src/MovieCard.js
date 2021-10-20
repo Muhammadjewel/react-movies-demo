@@ -1,4 +1,6 @@
-function MovieCard({ imdbPage, title, summary, youtubePoster }) {
+function MovieCard({ info }) {
+  const { youtubePoster, title, imdbPage, summary } = info;
+
   return (
     <>
       <div className="movie-card">
