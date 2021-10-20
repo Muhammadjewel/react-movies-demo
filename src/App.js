@@ -10,7 +10,7 @@ function App() {
             if (a.imdbRating < b.imdbRating) return 1;
             if (a.imdbRating > b.imdbRating) return -1;
             return 0;
-          }).slice(0, 100).map(movie => <MovieCard info={movie} />) }
+          }).slice(0, 100).map(movie => <MovieCard {...movie} />) }
         </div>
       </div>
     </div>
